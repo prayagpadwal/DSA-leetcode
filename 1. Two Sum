@@ -1,0 +1,19 @@
+#Brute force
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        for p1 in range(0, n-1):
+            for p2 in range(p1+1, n):
+                if nums[p1] + nums[p2] == target:
+                    return [p1, p2]
+
+#Hashmap
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        ashmap = {}
+        for i, v in enumerate(nums):
+            diff = target - v
+            if diff in ashmap:
+                return [ashmap[diff], i]
+            else:
+                ashmap[v] = i
